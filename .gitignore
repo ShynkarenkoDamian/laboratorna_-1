@@ -1,4 +1,9 @@
 node_modules/
-*.log
+.log
 .env
 __pycache__/
+.vs/
+bin/
+obj/
+*.user
+*.suo
