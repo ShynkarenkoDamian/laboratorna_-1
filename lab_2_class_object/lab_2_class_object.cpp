@@ -16,8 +16,8 @@ int main() {
     client1.showInfo();
     client2.showInfo();
 
-    Rental rental1(car1, client2, 5);
-    rental1.showRentalInfo();
+    Rental rental1("Mersedes", "Damian", 5, 20);
+    rental1.showInfo();
     return 0;
 
 }

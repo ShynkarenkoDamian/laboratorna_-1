@@ -1,21 +1,19 @@
 #ifndef RENTAL_H
 #define RENTAL_H
-
-#include "Car.h"
-#include "Client.h"
-
+#include <string>
 class Rental {
 private:
-    Car car;
-    Client client;
+    std::string carBrand;
+    std::string clientName;
     int days;
+    double pricePerDay;
     double totalCost;
 
 public:
     Rental();
-    Rental(Car c, Client cl, int d = 1);
+    Rental(std::string brand, std::string client, int d = 1, double price = 50.0);
     ~Rental();
-    void showRentalInfo() const;
+    void showInfo() const;
 };
 
 #endif
