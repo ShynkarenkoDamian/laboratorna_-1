@@ -1,19 +1,19 @@
 #include "Car.h"
 #include <iostream>
 
-// defoult constructor
+// default constructor
 Car::Car() : Car("Unknown", "Unknown", 2000, 50.0) {
     std::cout << "delegation constructor was called" << std::endl;
 }
 // constructor with args
 Car::Car(std::string b, std::string m, int y, double price)
     : brand(b), model(m), year(y), pricePerDay(price) {
-    std::cout << "car constructor with arguments was called" << std::endl;
+    std::cout << "car default constructor was called" << std::endl;
 }
 
 // destructor
 Car::~Car() {
-    std::cout << "car destructed " << brand << " " << model << std::endl;
+    std::cout << "destructed " << brand << " " << model << std::endl;
 }
 
 double Car::calculateCost(int days) const {

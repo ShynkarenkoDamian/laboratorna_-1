@@ -12,7 +12,7 @@ private:
 
 public:
     Car();
-    Car(std::string b, std::string m, int y, double price);
+    Car(std::string b, std::string m, int y=2000, double price=50.0);
     ~Car();
     double calculateCost(int days) const;
     void showInfo() const;
