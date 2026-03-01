@@ -1,7 +1,7 @@
 #include "Car.h"
 #include <iostream>
 
-// default constructor
+// delegation constructor
 Car::Car() : Car("Unknown", "Unknown", 2000, 50.0) {
     std::cout << "delegation constructor was called" << std::endl;
 }
@@ -22,7 +22,5 @@ double Car::calculateCost(int days) const {
 
 
 void Car::showInfo() const {
-    std::cout << brand << " " << model
-        << " (" << year << ") - "
-        << pricePerDay << "$/day\n";
+    std::cout << brand << " " << model << " (" << year << ") - " << pricePerDay << "$/day\n";
 }
