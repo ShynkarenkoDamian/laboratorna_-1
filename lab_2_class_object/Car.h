@@ -21,6 +21,7 @@ public:
     void setPrice(double price);
     static int getCarCount();
     Car& operator+=(double extraPrice);
+    bool operator!() const;
 };
 
 #endif

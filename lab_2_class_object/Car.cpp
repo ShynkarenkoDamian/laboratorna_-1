@@ -67,3 +67,8 @@ Car& Car::operator+=(double extraPrice)
     pricePerDay += extraPrice;
     return *this;
 };
+
+bool Car::operator!() const
+{
+    return pricePerDay <= 0;
+}
