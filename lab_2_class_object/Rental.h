@@ -17,6 +17,9 @@ public:
     ~Rental();
     void showInfo() const;
     static int getRentalCount();
+    bool operator==(Rental& rental) const;
+    friend std::ostream& operator<<(std::ostream& out, const Rental& rental);
+    friend std::istream& operator>>(std::istream& in, Rental& rental);
 };
 
 #endif

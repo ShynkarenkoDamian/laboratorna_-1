@@ -26,3 +26,22 @@ int Rental::getRentalCount()
 {
     return rentalCount;
 }
+
+bool Rental::operator==(Rental& rental) const
+{
+    return (this->client.getName() == rental.client.getName());
+}
+
+std::ostream& operator<<(std::ostream& out, const Rental& rental)
+{
+    out << rental.car << rental.client << rental.days;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Rental& rental)
+{
+    in >> rental.car >> rental.client >> rental.days;
+    return in;
+}
+
+
