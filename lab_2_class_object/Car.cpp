@@ -9,6 +9,7 @@ Car::Car() : Car("Unknown", "Unknown", 2000, 50.0) {
 Car::Car(std::string b, std::string m, int y, double price)
     : brand(b), model(m), year(y), pricePerDay(price) {
     std::cout << "car default constructor was called" << std::endl;
+    carCount++;
 }
 Car::Car(const Car& other)
     : brand(other.brand),
@@ -17,6 +18,7 @@ Car::Car(const Car& other)
     pricePerDay(other.pricePerDay)
 {
     std::cout << "Copy car constructor called\n";
+    carCount++;
 }
 
 Car::Car(Car&& other) noexcept
@@ -36,6 +38,7 @@ Car::Car(Car&& other) noexcept
 // destructor
 Car::~Car() {
     std::cout << "destructed " << brand << " " << model << std::endl;
+    carCount--;
 }
 
 double Car::calculateCost(int days) const {
@@ -50,4 +53,11 @@ void Car::showInfo() const {
 void Car::setPrice(double price)
 {
     this->pricePerDay = price;
+}
+
+int Car::carCount = 0;
+
+int Car::getCarCount()
+{
+    return carCount;
 }

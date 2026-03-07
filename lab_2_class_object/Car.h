@@ -9,7 +9,7 @@ private:
     std::string model;
     int year;
     double pricePerDay;
-
+    static int carCount;
 public:
     Car();
     Car(std::string b, std::string m, int y=2000, double price=50.0);
@@ -19,6 +19,7 @@ public:
     double calculateCost(int days) const;
     void showInfo() const;
     void setPrice(double price);
+    static int getCarCount();
 };
 
 #endif
