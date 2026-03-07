@@ -18,6 +18,8 @@ public:
     ~Client();
     void showInfo() const;
     static int getClientCount();
+    friend std::ostream& operator<<(std::ostream& out, const Client& other);
+    friend std::istream& operator>>(std::istream& in, Client& other);
 };
 
 #endif

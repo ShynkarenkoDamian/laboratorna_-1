@@ -39,3 +39,17 @@ int Client::getClientCount()
 {
     return clientCount;
 }
+
+std::ostream& operator<<(std::ostream& out, const Client& other)
+{
+    out << other.name << " "
+        << other.licenseNumber << " "
+        << other.phone;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Client& other)
+{
+    in >> other.name >> other.licenseNumber >> other.phone;
+    return in;
+}
