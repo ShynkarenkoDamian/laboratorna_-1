@@ -51,7 +51,6 @@ void Car::showInfo() const {
 }
 
 int Car::carCount = 0;
-
 int Car::getCarCount()
 {
     return carCount;

@@ -8,6 +8,7 @@ private:
     std::string name;
     std::string licenseNumber;
     std::string phone;
+    static int clientCount;
 
 public:
     Client();
@@ -16,6 +17,7 @@ public:
     Client(Client&& other) noexcept;
     ~Client();
     void showInfo() const;
+    static int getClientCount();
 };
 
 #endif
