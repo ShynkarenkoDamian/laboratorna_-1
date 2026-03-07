@@ -10,6 +10,28 @@ Car::Car(std::string b, std::string m, int y, double price)
     : brand(b), model(m), year(y), pricePerDay(price) {
     std::cout << "car default constructor was called" << std::endl;
 }
+Car::Car(const Car& other)
+    : brand(other.brand),
+    model(other.model),
+    year(other.year),
+    pricePerDay(other.pricePerDay)
+{
+    std::cout << "Copy car constructor called\n";
+}
+
+Car::Car(Car&& other) noexcept
+    : brand(other.brand),
+    model(other.model),
+    year(other.year),
+    pricePerDay(other.pricePerDay)
+{
+    other.brand = nullptr;
+    other.model = nullptr;
+    other.year = 0;
+    other.pricePerDay = 0;
+
+    std::cout << "Move constructor called\n";
+}
 
 // destructor
 Car::~Car() {
