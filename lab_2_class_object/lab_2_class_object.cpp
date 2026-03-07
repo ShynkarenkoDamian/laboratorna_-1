@@ -4,12 +4,7 @@
 #include "Rental.h"
 
 int main() {
-    Car car1("Toyota", "Camry", 2022, 80);
-    car1.showInfo();
-    Car car2;
-    car2.showInfo();
-    Car car3("Mersedes", "Benz");
-    car3.showInfo();
+
 
     Client client1;
     Client client2("Damian", "AB123456");
@@ -18,6 +13,19 @@ int main() {
 
     Rental rental1("Mersedes", "Damian", 5, 20);
     rental1.showInfo();
+
+    Car car1("Toyota", "Camry", 2022, 80);
+
+    Car car2 = car1;           // copy constructor
+    Car car3 = std::move(car2); // move constructor
+
+    car1 += 20;      // operator +
+
+    std::cout << car1 << std::endl; // operator <<
+
+    std::cin >> car1;          // operator >>
+
+
     return 0;
 
 }

@@ -22,6 +22,8 @@ public:
     static int getCarCount();
     Car& operator+=(double extraPrice);
     bool operator!() const;
+    friend std::ostream& operator<<(std::ostream& out, const Car& car);
+    friend std::istream& operator>>(std::istream& in, Car& car);
 };
 
 #endif

@@ -27,8 +27,8 @@ Car::Car(Car&& other) noexcept
     year(other.year),
     pricePerDay(other.pricePerDay)
 {
-    other.brand = nullptr;
-    other.model = nullptr;
+    other.brand = "";
+    other.model = "";
     other.year = 0;
     other.pricePerDay = 0;
 
@@ -71,4 +71,19 @@ Car& Car::operator+=(double extraPrice)
 bool Car::operator!() const
 {
     return pricePerDay <= 0;
+}
+
+std::ostream& operator<<(std::ostream& out, const Car& car)
+{
+    out << car.brand << " "
+        << car.model << " "
+        << car.year << " "
+        << car.pricePerDay;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Car& car)
+{
+    in >> car.brand >> car.model >> car.year >> car.pricePerDay;
+    return in;
 }
