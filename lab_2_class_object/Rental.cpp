@@ -1,13 +1,11 @@
 #include "Rental.h"
 #include <iostream>
 
-Rental::Rental()
-    : Rental("Unknown", "Unknown", 1, 50.0) {
-    std::cout << "delegation rental constructor called\n";
-}
-Rental::Rental(std::string brand, std::string client, int d, double price)
-    : carBrand(brand), clientName(client), days(d), pricePerDay(price), totalCost(price* d) {
-    std::cout << "Rental default constructor was called\n";
+Rental::Rental(Car& car, Client& client, int days)
+    : car(car), client(client), days(days)
+{
+    totalCost = car.calculateCost(days);
+    std::cout << "Rental created\n";
 }
 
 Rental::~Rental() {
@@ -15,8 +13,11 @@ Rental::~Rental() {
 }
 
 void Rental::showInfo() const {
-    std::cout << "Car: " << carBrand<<
-        "\nClient: " << clientName<< 
-        "\nDays: " << days<< 
-        "\nTotal cost: " << totalCost<< "$\n";
+    std::cout << "\n--- Rental info ---\n";
+
+    car.showInfo();
+    client.showInfo();
+
+    std::cout << "Days: " << days << std::endl;
+    std::cout << "Total cost: " << totalCost << "$\n";
 }
