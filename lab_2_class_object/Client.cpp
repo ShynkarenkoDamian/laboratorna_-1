@@ -28,5 +28,5 @@ Client::~Client() {
 }
 
 void Client::showInfo() const {
-    std::cout << "Client: "<< name<< ", License: "<< licenseNumber<< ", Phone: "<< phone << std::endl;
+    std::cout << "Client: "<< this->name<< ", License: "<< this->licenseNumber<< ", Phone: "<< this->phone << std::endl;
 }
