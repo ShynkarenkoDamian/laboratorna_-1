@@ -18,6 +18,6 @@ void Rental::showInfo() const {
     car.showInfo();
     client.showInfo();
 
-    std::cout << "Days: " << days << std::endl;
-    std::cout << "Total cost: " << totalCost << "$\n";
+    std::cout << "Days: " << this->days << std::endl;
+    std::cout << "Total cost: " << this->totalCost << "$\n";
 }
