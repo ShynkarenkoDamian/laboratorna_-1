@@ -21,3 +21,8 @@ void Rental::showInfo() const {
     std::cout << "Days: " << this->days << std::endl;
     std::cout << "Total cost: " << this->totalCost << "$\n";
 }
+int Rental::rentalCount = 0;
+int Rental::getRentalCount()
+{
+    return rentalCount;
+}
