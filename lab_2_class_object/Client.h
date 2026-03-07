@@ -12,6 +12,8 @@ private:
 public:
     Client();
     Client(std::string n,std::string license,std::string p = "Not provided");
+    Client(const Client& other);
+    Client(Client&& other) noexcept;
     ~Client();
     void showInfo() const;
 };

@@ -32,7 +32,7 @@ Car::Car(Car&& other) noexcept
     other.year = 0;
     other.pricePerDay = 0;
 
-    std::cout << "Move constructor called\n";
+    std::cout << "Move car constructor called\n";
 }
 
 // destructor

@@ -19,11 +19,11 @@ int main() {
     Car car2 = car1;           // copy constructor
     Car car3 = std::move(car2); // move constructor
 
-    car1 += 20;      // operator +
+    car1 += 20; 
 
-    std::cout << car1 << std::endl; // operator <<
+    std::cout << car1 << std::endl; 
 
-    std::cin >> car1;          // operator >>
+    std::cin >> car1; 
 
 
     return 0;
