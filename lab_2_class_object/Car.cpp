@@ -61,3 +61,9 @@ int Car::getCarCount()
 {
     return carCount;
 }
+
+Car& Car::operator+=(double extraPrice)
+{
+    pricePerDay += extraPrice;
+    return *this;
+};

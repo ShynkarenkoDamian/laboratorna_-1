@@ -20,6 +20,7 @@ public:
     void showInfo() const;
     void setPrice(double price);
     static int getCarCount();
+    Car& operator+=(double extraPrice);
 };
 
 #endif
