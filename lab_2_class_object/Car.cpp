@@ -47,12 +47,7 @@ double Car::calculateCost(int days) const {
 
 
 void Car::showInfo() const {
-    std::cout << brand << " " << model << " (" << year << ") - " << pricePerDay << "$/day\n";
-}
-
-void Car::setPrice(double price)
-{
-    this->pricePerDay = price;
+    std::cout << this->brand << " " <<this->model << " (" << this->year << ") - " << this->pricePerDay << "$/day\n";
 }
 
 int Car::carCount = 0;

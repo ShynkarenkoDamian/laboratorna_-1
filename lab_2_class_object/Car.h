@@ -18,7 +18,6 @@ public:
     ~Car();
     double calculateCost(int days) const;
     void showInfo() const;
-    void setPrice(double price);
     static int getCarCount();
     Car& operator+=(double extraPrice);
     bool operator!() const;
