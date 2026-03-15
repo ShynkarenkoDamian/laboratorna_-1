@@ -40,6 +40,19 @@ int Car::getCarCount()
     return carCount;
 }
 
+Car& Car::operator=(const Car& other)
+{
+    if (this != &other)
+    {
+        brand = other.brand;
+        model = other.model;
+        year = other.year;
+        pricePerDay = other.pricePerDay;
+    }
+
+    return *this;
+}
+
 Car& Car::operator+=(double extraPrice)
 {
     pricePerDay += extraPrice;
