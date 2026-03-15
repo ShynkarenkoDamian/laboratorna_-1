@@ -44,9 +44,7 @@ Car& Car::operator=(const Car& other)
 {
     if (this != &other)
     {
-        brand = other.brand;
-        model = other.model;
-        year = other.year;
+        Vehicle::operator=;
         pricePerDay = other.pricePerDay;
     }
 

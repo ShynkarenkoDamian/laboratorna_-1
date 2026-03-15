@@ -29,6 +29,16 @@ Vehicle::~Vehicle() {
     std::cout << "Vehicle destroyed\n";
 }
 
+Vehicle& Vehicle::operator=(const Vehicle& other)
+{
+    if (this != &other)
+    {
+        brand = other.brand;
+        model = other.model;
+        year = other.year;
+    }
+}
+
 void Vehicle::showInfo() const {
     std::cout << brand << " " << model << " (" << year << ")";
 }

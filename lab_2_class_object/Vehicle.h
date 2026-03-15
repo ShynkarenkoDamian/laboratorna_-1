@@ -18,6 +18,8 @@ public:
 
     virtual ~Vehicle();
 
+    Vehicle& operator=(const Vehicle& other);
+
     void showInfo() const;
 };
 

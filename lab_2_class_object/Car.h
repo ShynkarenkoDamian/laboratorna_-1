@@ -6,8 +6,9 @@
 
 class Car: public Vehicle {
 private:
-    double pricePerDay;
     static int carCount;
+protected:
+    double pricePerDay;
 public:
     Car();
     Car(std::string brand, std::string model, int year, double price);
