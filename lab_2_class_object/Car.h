@@ -14,7 +14,7 @@ public:
     Car(std::string brand, std::string model, int year, double price);
     Car(const Car& other);
     Car(Car&& other) noexcept;
-    ~Car();
+    virtual ~Car();
     double calculateCost(int days) const;
     void showInfo() const;
     static int getCarCount();
