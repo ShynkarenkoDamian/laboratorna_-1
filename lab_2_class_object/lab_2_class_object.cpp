@@ -15,8 +15,8 @@ int main() {
     Rental rental1(car1, client1, 5);
     rental1.showInfo();
 
-    Car car2 = car1;           // copy constructor
-    Car car3 = std::move(car2); // move constructor
+    Car car2 = car1;           
+    Car car3 = std::move(car2); 
 
     car1 += 20; 
 
