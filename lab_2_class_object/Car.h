@@ -2,17 +2,15 @@
 #define CAR_H
 
 #include <string>
+#include "Vehicle.h"
 
-class Car {
+class Car: public Vehicle {
 private:
-    std::string brand;
-    std::string model;
-    int year;
     double pricePerDay;
     static int carCount;
 public:
     Car();
-    Car(std::string b, std::string m, int y=2000, double price=50.0);
+    Car(std::string brand, std::string model, int year, double price);
     Car(const Car& other);
     Car(Car&& other) noexcept;
     ~Car();
