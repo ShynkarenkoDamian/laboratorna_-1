@@ -13,7 +13,7 @@ Car::Car(const Car& other)
 {carCount++;}
 
 Car::Car(Car&& other) noexcept
-    : Vehicle(other),
+    : Vehicle(std::move(other)),
     pricePerDay(other.pricePerDay)
 {
     other.pricePerDay = 0;

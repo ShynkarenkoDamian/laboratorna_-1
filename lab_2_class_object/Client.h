@@ -5,20 +5,21 @@
 
 class Client {
 private:
+    static int clientCount;
+protected:
     std::string name;
     std::string licenseNumber;
     std::string phone;
-    static int clientCount;
-
 public:
     Client();
-    Client(std::string n,std::string license,std::string p = "Not provided");
+    Client(std::string name,std::string license,std::string phone);
     Client(const Client& other);
     Client(Client&& other) noexcept;
-    ~Client();
+    virtual ~Client();
     std::string getName();
     void showInfo() const;
     static int getClientCount();
+    Client& operator=(const Client& other);
     friend std::ostream& operator<<(std::ostream& out, const Client& other);
     friend std::istream& operator>>(std::istream& in, Client& other);
 };
