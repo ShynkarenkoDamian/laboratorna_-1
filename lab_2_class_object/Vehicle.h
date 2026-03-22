@@ -18,10 +18,11 @@ public:
 
     virtual ~Vehicle();
 
-    Vehicle& operator=(const Vehicle& other);
-
     virtual void showInfo() const;
+    virtual void getPricePerDay() const =0;
     void showInfoStaticBinding() const;
+
+    Vehicle& operator=(const Vehicle& other);
 };
 
 #endif

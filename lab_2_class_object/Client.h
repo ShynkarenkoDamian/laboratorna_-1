@@ -16,9 +16,12 @@ public:
     Client(const Client& other);
     Client(Client&& other) noexcept;
     virtual ~Client();
+
     std::string getName();
     void showInfo() const;
+
     static int getClientCount();
+
     Client& operator=(const Client& other);
     friend std::ostream& operator<<(std::ostream& out, const Client& other);
     friend std::istream& operator>>(std::istream& in, Client& other);

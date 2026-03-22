@@ -38,6 +38,11 @@ void Car::showInfoStaticBinding() const
     std::cout << "Derived class function\n";
 }
 
+void Car::getPricePerDay() const
+{
+    std::cout << "Price per day = " << this->pricePerDay << "$\n" << std::endl;
+}
+
 int Car::carCount = 0;
 int Car::getCarCount()
 {

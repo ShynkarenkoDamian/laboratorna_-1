@@ -44,6 +44,9 @@ void Vehicle::showInfo() const {
     std::cout << brand << " " << model << " (" << year << ")" << std::endl;
 }
 
+void Vehicle::getPricePerDay() const
+{}
+
 void Vehicle::showInfoStaticBinding() const
 {
     std::cout << "Base class function\n";

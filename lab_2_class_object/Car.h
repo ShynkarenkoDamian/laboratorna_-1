@@ -12,13 +12,19 @@ protected:
 public:
     Car();
     Car(std::string brand, std::string model, int year, double price);
+
     Car(const Car& other);
     Car(Car&& other) noexcept;
+
     virtual ~Car();
+
     double calculateCost(int days) const;
     void showInfo() const override;
     void showInfoStaticBinding() const;
+    void getPricePerDay() const override;
+
     static int getCarCount();
+
     Car& operator=(const Car& other);
     Car& operator+=(double extraPrice);
     bool operator!() const;
