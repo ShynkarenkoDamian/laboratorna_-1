@@ -18,7 +18,7 @@ public:
     virtual ~Client();
 
     std::string getName();
-    void showInfo() const;
+    virtual void showInfo() const;
 
     static int getClientCount();
 

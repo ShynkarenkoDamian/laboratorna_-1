@@ -14,6 +14,9 @@ public:
 	VIPClient(const VIPClient& other);
 	VIPClient(VIPClient&& other) noexcept;
 	~VIPClient();
+
+	void showInfo() const override;
+
 	VIPClient& operator=(const VIPClient& other);
 };
 

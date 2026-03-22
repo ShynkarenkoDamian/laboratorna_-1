@@ -1,4 +1,5 @@
 #include "VIPClient.h"
+#include <iostream>
 
 VIPClient::VIPClient() : Client("unknown","unknown","unknown"), discountRate(0), loyaltyPoints(0)
 {}
@@ -20,6 +21,13 @@ VIPClient::VIPClient(VIPClient&& other) noexcept
 
 VIPClient::~VIPClient()
 {}
+
+void VIPClient::showInfo() const
+{
+	Client::showInfo();
+	std::cout << "Client`s discount rate is " << this->discountRate << std::endl;
+	std::cout << "Client has "<<this->loyaltyPoints<<" loyalty points"<< std::endl;
+}
 
 VIPClient& VIPClient::operator=(const VIPClient& other)
 {
