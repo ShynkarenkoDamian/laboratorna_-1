@@ -40,6 +40,10 @@ Vehicle& Vehicle::operator=(const Vehicle& other)
     return *this;
 }
 
+void Vehicle::display() const {
+    std::cout << brand << " " << model << " (" << year << ")" << std::endl;
+}
+
 void Vehicle::showInfo() const {
     std::cout << brand << " " << model << " (" << year << ")" << std::endl;
 }

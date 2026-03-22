@@ -24,6 +24,7 @@ int main() {
 
     Client* VipClient = new VIPClient("Pavlo", "AP10120023", "+3806798842", 9, 18.3);
         VipClient->showInfo();
+        VipClient->display();
 
         Car car;
         Vehicle& ref_car = car;

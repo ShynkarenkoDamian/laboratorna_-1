@@ -2,8 +2,9 @@
 #define VEHICLE_H
 
 #include <string>
+#include "IDisplay.h"
 
-class Vehicle {
+class Vehicle: public IDisplay {
 protected:
     std::string brand;
     std::string model;
@@ -18,6 +19,7 @@ public:
 
     virtual ~Vehicle();
 
+    void display() const override;
     virtual void showInfo() const;
     virtual void getPricePerDay() const =0;
     void showInfoStaticBinding() const;

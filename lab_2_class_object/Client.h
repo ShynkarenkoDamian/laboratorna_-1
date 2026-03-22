@@ -1,9 +1,10 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include "IDisplay.h"
 #include <string>
 
-class Client {
+class Client: public IDisplay {
 private:
     static int clientCount;
 protected:
@@ -17,6 +18,7 @@ public:
     Client(Client&& other) noexcept;
     virtual ~Client();
 
+    void display() const override;
     std::string getName();
     virtual void showInfo() const;
 

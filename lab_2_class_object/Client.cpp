@@ -24,6 +24,11 @@ Client::~Client() {
     clientCount--;
 }
 
+void Client::display() const
+{
+   std::cout << "Client: " << this->name << ", License: " << this->licenseNumber << ", Phone: " << this->phone << std::endl;
+}
+
 std::string Client::getName()
 {
     return std::string(this->name);
