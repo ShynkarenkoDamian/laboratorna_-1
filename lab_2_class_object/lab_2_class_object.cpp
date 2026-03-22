@@ -5,10 +5,15 @@
 
 int main() {
 
-    Vehicle* v = new Car(); // вказівник на базу, об'єкт Car
+    Vehicle* v = new Car("Mersedes", "benz", 2007, 20.0);
+        v->showInfoStaticBinding();
 
-    v->showInfo(); // ❗ СТАТИЧНА ПРИВ’ЯЗКА
+    Vehicle* c = new Car("Mersedes", "benz", 2007, 20.0);
+        c->showInfo();
 
+
+    delete v;
+    delete c;
     return 0;
 
 }

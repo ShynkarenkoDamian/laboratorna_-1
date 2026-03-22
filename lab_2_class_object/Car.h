@@ -16,7 +16,8 @@ public:
     Car(Car&& other) noexcept;
     virtual ~Car();
     double calculateCost(int days) const;
-    void showInfo() const;
+    void showInfo() const override;
+    void showInfoStaticBinding() const;
     static int getCarCount();
     Car& operator=(const Car& other);
     Car& operator+=(double extraPrice);

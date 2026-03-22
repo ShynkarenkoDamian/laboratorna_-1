@@ -20,7 +20,8 @@ public:
 
     Vehicle& operator=(const Vehicle& other);
 
-    void showInfo() const;
+    virtual void showInfo() const;
+    void showInfoStaticBinding() const;
 };
 
 #endif
