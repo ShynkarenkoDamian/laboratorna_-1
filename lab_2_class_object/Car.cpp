@@ -44,7 +44,7 @@ Car& Car::operator=(const Car& other)
 {
     if (this != &other)
     {
-        Vehicle::operator=;
+        Vehicle::operator=(other);
         pricePerDay = other.pricePerDay;
     }
 

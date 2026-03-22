@@ -25,7 +25,7 @@ ElectricCar& ElectricCar::operator=(const ElectricCar& other)
 {
     if (this != &other)
     {
-        Car::operator=;
+        Car::operator=(other);
         batteryCapacity = other.batteryCapacity;
         rangePerCharge = other.rangePerCharge;
     }

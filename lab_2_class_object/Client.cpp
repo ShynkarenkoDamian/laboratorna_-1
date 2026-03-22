@@ -47,6 +47,7 @@ Client& Client::operator=(const Client& other)
         licenseNumber = other.licenseNumber;
         phone = other.phone;
     }
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& out, const Client& other)

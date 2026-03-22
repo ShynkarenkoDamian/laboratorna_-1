@@ -37,6 +37,7 @@ Vehicle& Vehicle::operator=(const Vehicle& other)
         model = other.model;
         year = other.year;
     }
+    return *this;
 }
 
 void Vehicle::showInfo() const {

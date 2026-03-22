@@ -25,9 +25,10 @@ VIPClient& VIPClient::operator=(const VIPClient& other)
 {
 	if (this != &other)
 	{
-		Client::operator=;
+		Client::operator=(other);
 		discountRate = other.discountRate;
 		loyaltyPoints = other.loyaltyPoints;
 	}
+	return *this;
 }
 
