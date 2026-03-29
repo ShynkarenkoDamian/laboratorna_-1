@@ -3,7 +3,7 @@
 
 #include "Client.h"
 
-class VIPClient : public Client
+class VIPClient final : public Client
 {
 private:
 	int discountRate;
