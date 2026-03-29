@@ -40,6 +40,6 @@ ElectricCar& ElectricCar::operator=(const ElectricCar& other)
 void ElectricCar::showInfo() const
 {
     Car::showInfo();
-    std::cout << "Battery: " << batteryCapacity << " kWh, Range: "
+    std::cout << " Battery: " << batteryCapacity << " kWh" << std::endl<< " Range: "
         << rangePerCharge << " km\n";
 }

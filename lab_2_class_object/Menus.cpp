@@ -57,3 +57,32 @@ void adminMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles) {
         }
     } while (choice != 0);
 }
+
+void userMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles){
+    int choice;
+    do {
+        system("cls");
+        std::cout << "----- User Automobile Rent Menu -----\n1. See cars\n2. Rent\n0. Exit\n";
+        std::cin >> choice;
+
+        switch (choice)
+        {
+        case 1: {
+            FileManager::loadVehicles(vehicles);
+            std::cout << "Avalible cars: " << std::endl;
+            for (const auto& vehicle : vehicles) {
+                vehicle->showInfo();
+            }
+            system("pause");
+        }
+
+              break;
+        case 2: 
+
+              break;
+
+        default:
+            break;
+        }
+    } while (choice != 0);
+}

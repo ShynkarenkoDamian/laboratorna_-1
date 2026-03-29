@@ -16,19 +16,24 @@ void printInfo(const Vehicle& v)
 
 int main() {
     std::vector<std::shared_ptr<Vehicle>> vehicles;
-    std::ofstream file("vehicles.txt");
     int choiсe;
-    std::cout << "----- Automobile Rent Menu -----\n1. Login as user\n2. Login as admin\n3. Exit\nYour choise: ";
-    std::cin >> choiсe;
-    switch (choiсe)
-    {
-    case 1:
-        adminMenu(vehicles);
-        system("cls");
-    default:
-        break;
-    }
-
+    do {
+        std::cout << "----- Automobile Rent Menu -----\n1. Login as user\n2. Login as admin\n0. Exit\nYour choise: ";
+        std::cin >> choiсe;
+        switch (choiсe)
+        {
+        case 1: {
+            userMenu(vehicles);
+            system("cls");
+            break;
+        }
+        case 2:
+            adminMenu(vehicles);
+            system("cls");
+        default:
+            break;
+        }
+    } while (choiсe != 0);
     return 0;
 
 }
