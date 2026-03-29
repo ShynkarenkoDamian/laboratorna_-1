@@ -27,9 +27,21 @@ int main() {
             system("cls");
             break;
         }
-        case 2:
-            adminMenu(vehicles);
-            system("cls");
+        case 2: {
+            std::string pin = "5834";
+            std::string enter;
+                std::cout << "Enter pin-code: ";
+                std::cin >> enter;
+                if (enter == pin)
+                    adminMenu(vehicles);
+                else {
+                    std::cout << "Wrong pin!\n";
+                    system("pause");
+                    system("cls");
+                    break;
+                }
+            
+        }
         default:
             break;
         }

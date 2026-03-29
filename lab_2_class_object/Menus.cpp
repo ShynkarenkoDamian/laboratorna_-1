@@ -62,7 +62,7 @@ void userMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles){
     int choice;
     do {
         system("cls");
-        std::cout << "----- User Automobile Rent Menu -----\n1. See cars\n2. Rent\n0. Exit\n";
+        std::cout << "----- User Automobile Rent Menu -----\n1. See avalible cars\n2. Rent\n0. Exit\n";
         std::cin >> choice;
 
         switch (choice)
