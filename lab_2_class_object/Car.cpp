@@ -43,6 +43,11 @@ void Car::getPricePerDay() const
     std::cout << "Price per day = " << this->pricePerDay << "$\n" << std::endl;
 }
 
+void Car::save(std::ofstream& file) const
+{
+    file << "Car " << brand << " " << model << " " << year << " " << pricePerDay << std::endl;
+}
+
 int Car::carCount = 0;
 int Car::getCarCount()
 {

@@ -15,9 +15,11 @@ public:
     ElectricCar(const ElectricCar& other);
     ElectricCar(ElectricCar&& other) noexcept;
     ~ElectricCar();
+
+    virtual void save(std::ofstream& file) const override;
     ElectricCar& operator=(const ElectricCar& other);
 
-    void showInfo() const;  // override Car::showInfo()
+    void showInfo() const;
 };
 
 #endif

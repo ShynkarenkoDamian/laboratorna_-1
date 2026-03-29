@@ -22,6 +22,7 @@ public:
     void showInfo() const override;
     void showInfoStaticBinding() const;
     void getPricePerDay() const override;
+    virtual void save(std::ofstream& file) const override;
 
     static int getCarCount();
 
