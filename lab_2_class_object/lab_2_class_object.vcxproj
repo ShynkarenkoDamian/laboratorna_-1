@@ -129,6 +129,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="IDisplay.cpp" />
     <ClCompile Include="lab_2_class_object.cpp" />
+    <ClCompile Include="Menus.cpp" />
     <ClCompile Include="Rental.cpp" />
     <ClCompile Include="Vehicle.cpp" />
     <ClCompile Include="VIPClient.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="IDisplay.h" />
     <ClInclude Include="lab_2_class_object.h" />
+    <ClInclude Include="Menus.h" />
     <ClInclude Include="Rental.h" />
     <ClInclude Include="Vehicle.h" />
     <ClInclude Include="VIPClient.h" />
