@@ -1,23 +1,23 @@
 #include "Vehicle.h"
 #include <iostream>
 
-Vehicle::Vehicle() : brand("Unknown"), model("Unknown"), year(0) {
+Vehicle::Vehicle() : Id(999), brand("Unknown"), model("Unknown"), year(0) {
     
 }
 
-Vehicle::Vehicle(std::string b, std::string m, int y)
-    : brand(b), model(m), year(y) {
-    
+Vehicle::Vehicle(int Id, std::string b, std::string m, int y)
+    : Id(Id), brand(b), model(m), year(y) {
 }
 
 Vehicle::Vehicle(const Vehicle& other)
-    : brand(other.brand), model(other.model), year(other.year) {
+    : Id(other.Id), brand(other.brand), model(other.model), year(other.year) {
     
 }
 
 Vehicle::Vehicle(Vehicle&& other) noexcept
-    : brand(other.brand), model(other.model), year(other.year) {
+    : Id(other.Id), brand(other.brand), model(other.model), year(other.year) {
 
+    other.Id = 0;
     other.brand = "";
     other.model = "";
     other.year = 0;
@@ -49,6 +49,7 @@ Vehicle& Vehicle::operator=(const Vehicle& other)
 {
     if (this != &other)
     {
+        Id = other.Id;
         brand = other.brand;
         model = other.model;
         year = other.year;
@@ -61,15 +62,10 @@ void Vehicle::display() const {
 }
 
 void Vehicle::showInfo() const {
-    std::cout <<"--------------------\n" 
+    std::cout << "--------------------\n" << "Id: " << Id << std::endl
         <<"Brand: " << brand <<std::endl<< " " 
         <<"Model: "<< model << " (" << year << ")" << std::endl;
 }
 
 void Vehicle::getPricePerDay() const
 {}
-
-void Vehicle::showInfoStaticBinding() const
-{
-    std::cout << "Base class function\n";
-}

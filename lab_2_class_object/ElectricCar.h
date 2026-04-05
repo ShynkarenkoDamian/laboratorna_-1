@@ -9,7 +9,7 @@ private:
 
 public:
     ElectricCar();
-    ElectricCar(std::string brand, std::string model, int year, double price,
+    ElectricCar(int Id, std::string brand, std::string model, int year, double price,
         double battery, double range);
 
     ElectricCar(const ElectricCar& other);

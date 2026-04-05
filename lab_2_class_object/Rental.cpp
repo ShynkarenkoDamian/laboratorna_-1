@@ -5,11 +5,9 @@ Rental::Rental(Car& car, Client& client, int days)
     : car(car), client(client), days(days)
 {
     totalCost = car.calculateCost(days);
-    std::cout << "Rental created\n";
 }
 
 Rental::~Rental() {
-    std::cout << "Rental destroyed\n";
 }
 
 void Rental::showInfo() const {

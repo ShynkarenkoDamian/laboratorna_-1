@@ -20,6 +20,7 @@ void adminMenu() {
         {
         case 1: {
             FileManager::loadVehicles(vehicles);
+            int Id;
             std::string brand;
             std::string model;
             int year;
@@ -27,14 +28,15 @@ void adminMenu() {
 
             std::cin >> brand >> model >> year >> pricePerDay;
 
-            vehicles.push_back(std::make_shared<Car>(brand, model, year, pricePerDay));
+            vehicles.push_back(std::make_shared<Car>(Id, brand, model, year, pricePerDay));
         }
               std::cout << "Car created seccesfully!\n";
               FileManager::saveVehicles(vehicles);
               system("pause");
               break;
         case 2: {
-
+            FileManager::loadVehicles(vehicles);
+            int Id;
             std::string brand;
             std::string model;
             int year;
@@ -44,9 +46,10 @@ void adminMenu() {
 
             std::cin >> brand >> model >> year >> pricePerDay >> betteryCapacity >> range;
 
-            vehicles.push_back(std::make_shared<ElectricCar>(brand, model, year, pricePerDay, betteryCapacity, range));
+            vehicles.push_back(std::make_shared<ElectricCar>(Id, brand, model, year, pricePerDay, betteryCapacity, range));
         }
               std::cout << "Electric Car created seccesfully!\n";
+              FileManager::saveVehicles(vehicles);
               system("pause");
               break;
 

@@ -1,10 +1,10 @@
 #include "Car.h"
 #include <iostream>
 
-Car::Car() : Vehicle("Unknown", "Unknown", 0), pricePerDay(0) {}
+Car::Car() : Vehicle(999, "Unknown", "Unknown", 0), pricePerDay(0) {}
 
-Car::Car(std::string brand, std::string model, int year, double price)
-    : Vehicle(brand, model, year), pricePerDay(price) 
+Car::Car(int Id, std::string brand, std::string model, int year, double price)
+    : Vehicle(Id, brand, model, year), pricePerDay(price) 
 {carCount++;}
 
 Car::Car(const Car& other)

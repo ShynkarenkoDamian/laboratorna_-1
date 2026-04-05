@@ -11,7 +11,7 @@ protected:
     double pricePerDay;
 public:
     Car();
-    Car(std::string brand, std::string model, int year, double price);
+    Car(int Id, std::string brand, std::string model, int year, double price);
 
     Car(const Car& other);
     Car(Car&& other) noexcept;

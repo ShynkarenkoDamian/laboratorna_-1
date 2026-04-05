@@ -19,17 +19,19 @@ void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) 
     while (file >> type) {
 
         if (type == "Car") {
+            int Id;
             std::string brand;
             std::string model;
             int year;
             double pricePerDay;
 
-            file >> brand >> model >> year >> pricePerDay;
+            file >> Id >> brand >> model >> year >> pricePerDay;
 
-            vehicles.push_back(std::make_shared<Car>(brand, model, year, pricePerDay));
+            vehicles.push_back(std::make_shared<Car>(Id, brand, model, year, pricePerDay));
         }
 
         else if (type == "ElectricCar") {
+            int Id;
             std::string brand;
             std::string model;
             int year;
@@ -37,9 +39,9 @@ void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) 
             double battery;
             double range;
 
-            file >> brand >> model >> year >> pricePerDay >> battery >> range;
+            file >> Id >> brand >> model >> year >> pricePerDay >> battery >> range;
 
-            vehicles.push_back(std::make_shared<ElectricCar>(brand, model, year, pricePerDay, battery, range));
+            vehicles.push_back(std::make_shared<ElectricCar>(Id, brand, model, year, pricePerDay, battery, range));
         }
     }
 }

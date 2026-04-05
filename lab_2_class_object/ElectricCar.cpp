@@ -4,9 +4,9 @@
 ElectricCar::ElectricCar()
     : Car(), batteryCapacity(0), rangePerCharge(0) {}
 
-ElectricCar::ElectricCar(std::string brand, std::string model, int year, double price,
+ElectricCar::ElectricCar(int Id, std::string brand, std::string model, int year, double price,
     double battery, double range)
-    : Car(brand, model, year, price),
+    : Car(Id, brand, model, year, price),
     batteryCapacity(battery), rangePerCharge(range) {}
 
 ElectricCar::ElectricCar(const ElectricCar& other)
