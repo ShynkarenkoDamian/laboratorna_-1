@@ -4,7 +4,7 @@
 #include "ElectricCar.h"
 
 void FileManager::saveVehicles(const std::vector<std::shared_ptr<Vehicle>>& vehicles) {
-    std::ofstream file("vehicles.txt", std::ios::app);
+    std::ofstream file("vehicles.txt");
 
     for (auto& v : vehicles) {
         v->save(file);

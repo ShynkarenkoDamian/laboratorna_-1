@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -8,17 +7,19 @@
 #include "FileManager.h"
 #include "Menus.h"
 
-void adminMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles) {
+void adminMenu() {
     int choice;
+    std::vector<std::shared_ptr<Vehicle>> vehicles;
+
     do {
         system("cls");
-        std::cout << "----- Admin Automobile Rent Menu -----\n1. Add Car\n2. Add Electric Car\n3. Save\n0. Exit\n";
+        std::cout << "----- Admin Automobile Rent Menu -----\n1. Add Car\n2. Add Electric Car\n0. Exit\n";
         std::cin >> choice;
 
         switch (choice)
         {
         case 1: {
-
+            FileManager::loadVehicles(vehicles);
             std::string brand;
             std::string model;
             int year;
@@ -29,6 +30,7 @@ void adminMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles) {
             vehicles.push_back(std::make_shared<Car>(brand, model, year, pricePerDay));
         }
               std::cout << "Car created seccesfully!\n";
+              FileManager::saveVehicles(vehicles);
               system("pause");
               break;
         case 2: {
@@ -47,19 +49,16 @@ void adminMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles) {
               std::cout << "Electric Car created seccesfully!\n";
               system("pause");
               break;
-        case 3:
-            FileManager::saveVehicles(vehicles);
-            std::cout << "Saved seccesfully!\n";
-            system("pause");
-            break;
+
         default:
             break;
         }
     } while (choice != 0);
 }
 
-void userMenu(std::vector<std::shared_ptr<Vehicle>>& vehicles){
+void userMenu(){
     int choice;
+    std::vector<std::shared_ptr<Vehicle>> vehicles;
     do {
         system("cls");
         std::cout << "----- User Automobile Rent Menu -----\n1. See avalible cars\n2. Rent\n0. Exit\n";

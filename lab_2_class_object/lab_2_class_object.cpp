@@ -7,6 +7,7 @@
 #include "ElectricCar.h"
 #include "VIPClient.h"
 #include "Menus.h"
+#include "FileManager.h"
 
 void printInfo(const Vehicle& v)
 {
@@ -15,7 +16,7 @@ void printInfo(const Vehicle& v)
 
 
 int main() {
-    std::vector<std::shared_ptr<Vehicle>> vehicles;
+    
     int choiсe;
     do {
         std::cout << "----- Automobile Rent Menu -----\n1. Login as user\n2. Login as admin\n0. Exit\nYour choise: ";
@@ -23,7 +24,7 @@ int main() {
         switch (choiсe)
         {
         case 1: {
-            userMenu(vehicles);
+            userMenu();
             system("cls");
             break;
         }
@@ -32,8 +33,9 @@ int main() {
             std::string enter;
                 std::cout << "Enter pin-code: ";
                 std::cin >> enter;
-                if (enter == pin)
-                    adminMenu(vehicles);
+                if (enter == pin) {
+                    adminMenu();
+                }
                 else {
                     std::cout << "Wrong pin!\n";
                     system("pause");
