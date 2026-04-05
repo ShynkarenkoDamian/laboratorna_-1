@@ -4,6 +4,7 @@
 #include "Vehicle.h"
 #include "Rental.h"
 #include "Client.h"
+#include "History.h"
 
 class FileManager final
 {
@@ -14,5 +15,7 @@ public:
 	static void loadRentals(std::vector<std::shared_ptr<Rental>>& rentals, std::vector<std::shared_ptr<Client>>& clients, std::vector<std::shared_ptr<Vehicle>>& vehicles);
 	static void saveClients(const std::vector<std::shared_ptr<Client>>& clients);
 	static void loadClients(std::vector<std::shared_ptr<Client>>& clients);
+	static void saveHistory(const std::vector<History>& history);
+	static void loadHistory(std::vector<History>& history);
 };
 

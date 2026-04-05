@@ -75,6 +75,7 @@ void adminMenu() {
 
 void userMenu(){
     int choice;
+    std::vector<History> history;
     std::vector<std::shared_ptr<Vehicle>> vehicles;
     std::vector<std::shared_ptr<Client>> clients;
     std::vector<std::shared_ptr<Rental>> rentals;
@@ -95,59 +96,76 @@ void userMenu(){
             }
             system("pause");
         }
-
+              history.push_back(History("User viewed vehicles"));
+              FileManager::saveHistory(history);
+              history.clear();
               break;
         case 2: {
-			FileManager::loadVehicles(vehicles);
-            if (vehicles.empty()) {
-                std::cout << "No vehicles available!\n";
-                system("pause");
-                break;
-            }
+            try {
+                FileManager::loadVehicles(vehicles);
+                if (vehicles.empty()) {
+                    std::cout << "No vehicles available!\n";
+                    system("pause");
+                    break;
+                }
 
-            for (const auto& v : vehicles) {
-                v->showInfo();
-            }
+                for (const auto& v : vehicles) {
+                    v->showInfo();
+                }
 
-            int vehicleId;
-            std::cout << "Enter vehicle ID: ";
-            std::cin >> vehicleId;
+                int vehicleId;
+                std::cout << "Enter vehicle ID: ";
+                std::cin >> vehicleId;
 
-            std::shared_ptr<Vehicle> selectedVehicle = nullptr;
+                std::shared_ptr<Vehicle> selectedVehicle = nullptr;
 
                 for (auto& v : vehicles) {
                     if (v->getId() == vehicleId)
                         selectedVehicle = v;
                 }
 
-            if (!selectedVehicle) {
-                std::cout << "Vehicle not found!\n";
-                system("pause");
-                break;
+                if (!selectedVehicle) {
+                    throw std::runtime_error("Vehicle not found!");
+                }
+
+
+                std::string name, license, phone;
+                std::cout << "Enter name license phone: ";
+                std::cin >> name >> license >> phone;
+
+
+                int days;
+                std::cout << "Enter number of days: ";
+                std::cin >> days;
+
+                auto client = std::make_shared<Client>(name, license, phone);
+                clients.push_back(client);
+
+                auto rental = std::make_shared<Rental>(selectedVehicle, client, days);
+                rentals.push_back(rental);
+
+
+                FileManager::saveClients(clients);
+                FileManager::saveRentals(rentals);
+
+                std::cout << "Car rented successfully!\n";
+
+                std::string log = "User rented vehicle ID=" + std::to_string(selectedVehicle->getId()) +
+                    " for " + std::to_string(days) + " days";
+
+                history.push_back(History(log));
+                FileManager::saveHistory(history);
+                history.clear();
             }
+            catch (const std::exception& e) {
+                std::cout << "ERROR: " << e.what() << std::endl;
 
-
-            std::string name, license, phone;
-            std::cout << "Enter name license phone: ";
-            std::cin >> name >> license >> phone;
-
-
-            int days;
-            std::cout << "Enter number of days: ";
-            std::cin >> days;
-
-            auto client = std::make_shared<Client>(name, license, phone);
-            clients.push_back(client);
-
-            auto rental = std::make_shared<Rental>(selectedVehicle, client, days);
-            rentals.push_back(rental);
-
-
-            FileManager::saveClients(clients);
-            FileManager::saveRentals(rentals);
-
-            std::cout << "Car rented successfully!\n";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
+            }
             system("pause");
+
+           
 
             break;
         }

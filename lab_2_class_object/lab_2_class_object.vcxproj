@@ -127,6 +127,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ElectricCar.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="History.cpp" />
     <ClCompile Include="IDisplay.cpp" />
     <ClCompile Include="lab_2_class_object.cpp" />
     <ClCompile Include="Menus.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="ElectricCar.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="History.h" />
     <ClInclude Include="IDisplay.h" />
     <ClInclude Include="lab_2_class_object.h" />
     <ClInclude Include="Menus.h" />

@@ -24,7 +24,9 @@ std::shared_ptr<Client> findClientByLicense(const std::vector<std::shared_ptr<Cl
 
 void FileManager::saveVehicles(const std::vector<std::shared_ptr<Vehicle>>& vehicles) {
     std::ofstream file("vehicles.txt");
-
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open vehicles.txt");
+    }
     for (auto& v : vehicles) {
         v->save(file);
     }
@@ -34,7 +36,9 @@ void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) 
     vehicles.clear();
 
     std::ifstream file("vehicles.txt");
-
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open vehicles.txt");
+    }
     std::string type;
 
     while (file >> type) {
@@ -70,7 +74,9 @@ void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) 
 void FileManager::saveRentals(const std::vector<std::shared_ptr<Rental>>& rentals)
 {
     std::ofstream file("rentals.txt");
-
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open rentals.txt");
+    }
     for (auto& r : rentals) {
         r->save(file);
     }
@@ -80,7 +86,9 @@ void FileManager::loadRentals(std::vector<std::shared_ptr<Rental>>& rentals, std
 {
     rentals.clear();
             std::ifstream file("rentals.txt");
-
+            if (!file.is_open()) {
+                throw std::runtime_error("Cannot open rentals.txt");
+            }
             int vehicleId;
             std::string license;
             int days;
@@ -104,7 +112,9 @@ void FileManager::loadRentals(std::vector<std::shared_ptr<Rental>>& rentals, std
 void FileManager::saveClients(const std::vector<std::shared_ptr<Client>>& clients)
 {
     std::ofstream file("clients.txt");
-
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open clients.txt");
+    }
     for (auto& c : clients) {
         c->save(file);
     }
@@ -114,6 +124,9 @@ void FileManager::loadClients(std::vector<std::shared_ptr<Client>>& clients)
 {
     clients.clear();
     std::ifstream file("clients.txt");
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open clients.txt");
+    }
     std::string name;
     std::string license;
     std::string phone;
@@ -121,3 +134,24 @@ void FileManager::loadClients(std::vector<std::shared_ptr<Client>>& clients)
         clients.push_back(std::make_shared<Client>(name, license, phone));
 }
 
+void FileManager::saveHistory(const std::vector<History>& history) {
+    std::ofstream file("history.txt", std::ios::app);
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open history.txt");
+    }
+    for (const auto& h : history) {
+        h.save(file);
+    }
+}
+
+void FileManager::loadHistory(std::vector<History>& history) {
+    history.clear();
+    std::ifstream file("history.txt");
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open history.txt");
+    }
+    std::string line;
+    while (std::getline(file, line)) {
+        history.push_back(History(line));
+    }
+}

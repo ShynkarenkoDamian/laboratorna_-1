@@ -2,7 +2,16 @@
 #include <iostream>
 
 Rental::Rental(std::shared_ptr<Vehicle> v, std::shared_ptr<Client> c, int days) 
-    : vehicle(v), client(c), days(days) {}
+    : vehicle(v), client(c), days(days) {
+        
+            if (!vehicle) {
+                throw std::runtime_error("Vehicle is null in Rental!");
+            }
+            if (!client) {
+                throw std::runtime_error("Client is null in Rental!");
+            }
+        
+}
 
 Rental::~Rental() {
 }
