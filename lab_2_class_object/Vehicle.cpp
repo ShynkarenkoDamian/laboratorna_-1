@@ -39,6 +39,11 @@ std::string Vehicle::getModel() const
     return this->model;
 }
 
+int Vehicle::getId() const
+{
+    return Id;
+}
+
 int Vehicle::getYear() const
 {
     return this->year;

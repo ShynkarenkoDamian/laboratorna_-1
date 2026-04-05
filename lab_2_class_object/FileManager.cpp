@@ -31,6 +31,8 @@ void FileManager::saveVehicles(const std::vector<std::shared_ptr<Vehicle>>& vehi
 }
 
 void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) {
+    vehicles.clear();
+
     std::ifstream file("vehicles.txt");
 
     std::string type;
@@ -76,7 +78,7 @@ void FileManager::saveRentals(const std::vector<std::shared_ptr<Rental>>& rental
 
 void FileManager::loadRentals(std::vector<std::shared_ptr<Rental>>& rentals, std::vector<std::shared_ptr<Client>>& clients, std::vector<std::shared_ptr<Vehicle>>& vehicles)
 {
-        
+    rentals.clear();
             std::ifstream file("rentals.txt");
 
             int vehicleId;
@@ -110,6 +112,7 @@ void FileManager::saveClients(const std::vector<std::shared_ptr<Client>>& client
 
 void FileManager::loadClients(std::vector<std::shared_ptr<Client>>& clients)
 {
+    clients.clear();
     std::ifstream file("clients.txt");
     std::string name;
     std::string license;

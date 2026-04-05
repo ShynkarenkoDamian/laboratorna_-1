@@ -6,8 +6,8 @@
 
 class Rental {
 private:
-    std::shared_ptr<Client>& client;
-    std::shared_ptr<Vehicle>& vehicle;
+    std::shared_ptr<Client> client;
+    std::shared_ptr<Vehicle> vehicle;
     int days;
     static int rentalCount;
 

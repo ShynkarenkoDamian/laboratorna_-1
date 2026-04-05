@@ -22,7 +22,7 @@ public:
 
     std::string getBrand() const;
     std::string getModel() const;
-    int getId() const { return Id; }
+    int getId() const;
     int getYear() const;
     void display() const override;
     virtual void showInfo() const;

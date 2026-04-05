@@ -22,7 +22,7 @@ ElectricCar::ElectricCar(ElectricCar&& other) noexcept
 ElectricCar::~ElectricCar() {}
 
 void ElectricCar::save(std::ofstream& file) const{
-        file << "ElectricCar " << brand << " "<< model << " " << year << " " << pricePerDay << " " << batteryCapacity << " "<< rangePerCharge<< std::endl;
+        file << "ElectricCar " << Id << " " << brand << " " << model << " " << year << " " << pricePerDay << " " << batteryCapacity << " " << rangePerCharge << std::endl;
 }
 
 ElectricCar& ElectricCar::operator=(const ElectricCar& other)
