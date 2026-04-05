@@ -6,20 +6,17 @@
 
 class Rental {
 private:
-    Client& client;
-    Car& car;
+    std::shared_ptr<Client>& client;
+    std::shared_ptr<Vehicle>& vehicle;
     int days;
-    double totalCost;
     static int rentalCount;
 
 public:
-    Rental(Car& car, Client& client, int days);
+    Rental(std::shared_ptr<Vehicle> v,std::shared_ptr<Client> c,int days);
     ~Rental();
     void showInfo() const;
     static int getRentalCount();
-    bool operator==(Rental& rental) const;
-    friend std::ostream& operator<<(std::ostream& out, const Rental& rental);
-    friend std::istream& operator>>(std::istream& in, Rental& rental);
+    void save(std::ofstream& file) const;
 };
 
 #endif

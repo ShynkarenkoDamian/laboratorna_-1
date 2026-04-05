@@ -1,5 +1,6 @@
 #include "Client.h"
 #include <iostream>
+#include <fstream>
 
 Client::Client() :name("unknown"), phone("unknown"), licenseNumber("unknown") {}
 
@@ -34,8 +35,17 @@ std::string Client::getName()
     return std::string(this->name);
 }
 
+std::string Client::getLicense() const
+{
+    return this->licenseNumber;
+}
+
 void Client::showInfo() const {
     std::cout << "Client: "<< this->name<< ", License: "<< this->licenseNumber<< ", Phone: "<< this->phone << std::endl;
+}
+
+void Client::save(std::ofstream & file) const {
+    file << name << " " << licenseNumber << " " << phone << std::endl;
 }
 
 int Client::clientCount = 0;

@@ -20,7 +20,9 @@ public:
 
     void display() const override;
     std::string getName();
+    std::string getLicense() const;
     virtual void showInfo() const;
+    void save(std::ofstream& file) const;
 
     static int getClientCount();
 

@@ -1,7 +1,26 @@
 #include "FileManager.h"
+#include <iostream>
 #include <fstream>
 #include "Car.h"
 #include "ElectricCar.h"
+
+std::shared_ptr<Vehicle> findVehicleById(const std::vector<std::shared_ptr<Vehicle>>& vehicles, int id)
+{
+    for (auto& v : vehicles) {
+        if (v->getId() == id)
+            return v;
+    }
+    return nullptr;
+}
+
+std::shared_ptr<Client> findClientByLicense(const std::vector<std::shared_ptr<Client>>& clients, const std::string& license)
+{
+    for (auto& c : clients) {
+        if (c->getLicense() == license)
+            return c;
+    }
+    return nullptr;
+}
 
 void FileManager::saveVehicles(const std::vector<std::shared_ptr<Vehicle>>& vehicles) {
     std::ofstream file("vehicles.txt");
@@ -45,3 +64,57 @@ void FileManager::loadVehicles(std::vector<std::shared_ptr<Vehicle>>& vehicles) 
         }
     }
 }
+
+void FileManager::saveRentals(const std::vector<std::shared_ptr<Rental>>& rentals)
+{
+    std::ofstream file("rentals.txt");
+
+    for (auto& r : rentals) {
+        r->save(file);
+    }
+}
+
+void FileManager::loadRentals(std::vector<std::shared_ptr<Rental>>& rentals, std::vector<std::shared_ptr<Client>>& clients, std::vector<std::shared_ptr<Vehicle>>& vehicles)
+{
+        
+            std::ifstream file("rentals.txt");
+
+            int vehicleId;
+            std::string license;
+            int days;
+
+            while (file >> license >> vehicleId >> days) {
+
+                auto vehicle = findVehicleById(vehicles, vehicleId);
+                auto client = findClientByLicense(clients, license);
+
+                if (vehicle && client) {
+                    rentals.push_back(
+                        std::make_shared<Rental>(vehicle, client, days)
+                    );
+                }
+                else {
+                    std::cout << "Error: vehicle or client not found!\n";
+                }
+            }
+}
+
+void FileManager::saveClients(const std::vector<std::shared_ptr<Client>>& clients)
+{
+    std::ofstream file("clients.txt");
+
+    for (auto& c : clients) {
+        c->save(file);
+    }
+}
+
+void FileManager::loadClients(std::vector<std::shared_ptr<Client>>& clients)
+{
+    std::ifstream file("clients.txt");
+    std::string name;
+    std::string license;
+    std::string phone;
+    while (file >> name >> license >> phone)
+        clients.push_back(std::make_shared<Client>(name, license, phone));
+}
+

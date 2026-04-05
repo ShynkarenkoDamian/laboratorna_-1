@@ -9,11 +9,6 @@
 #include "Menus.h"
 #include "FileManager.h"
 
-void printInfo(const Vehicle& v)
-{
-    v.showInfo();
-}
-
 
 int main() {
     
